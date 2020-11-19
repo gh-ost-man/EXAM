@@ -14,7 +14,6 @@ namespace TaskLib
         public string Description { get; set; }
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
-
         public State state { get; set; }
     }
 
@@ -36,11 +35,6 @@ namespace TaskLib
         public void Edit(Task task)
         {
             if (task == null) throw new Exception("item was null");
-
-
-
-
-
         }
         public void Remove(Task task)
         {
