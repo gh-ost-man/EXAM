@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoList\ToDoLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskLib", "TaskLib\TaskLib.csproj", "{7D879A0C-7166-4C39-AD2B-4DF7DB34C9AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestListTasks", "UnitTestListTasks\UnitTestListTasks.csproj", "{4266BB19-0756-4E2B-88A0-2C63F90BB967}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7D879A0C-7166-4C39-AD2B-4DF7DB34C9AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D879A0C-7166-4C39-AD2B-4DF7DB34C9AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D879A0C-7166-4C39-AD2B-4DF7DB34C9AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4266BB19-0756-4E2B-88A0-2C63F90BB967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4266BB19-0756-4E2B-88A0-2C63F90BB967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4266BB19-0756-4E2B-88A0-2C63F90BB967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4266BB19-0756-4E2B-88A0-2C63F90BB967}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
