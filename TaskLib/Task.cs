@@ -90,6 +90,15 @@ namespace TaskLib
                 if (task.Id == Tasks[i].Id) index = i;
 
             Tasks[index] = task;
+
+            XmlSerializer xs = new XmlSerializer(typeof(List<ToDoTask>));
+
+            using (FileStream fs = new FileStream("Tasks.xml", FileMode.Truncate))
+            {
+                xs.Serialize(fs, Tasks);
+            }
+
+
         }
 
         ///@param task for remove

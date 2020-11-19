@@ -24,7 +24,6 @@ namespace ToDoList
         {
             try
             {
-
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = tasks.GetAllTasks(); ;
             }
@@ -36,7 +35,12 @@ namespace ToDoList
             ToDoTask task = new ToDoTask();
 
             Form_Add_Edit add = new Form_Add_Edit(task, TypeF.Add);
-            add.ShowDialog();
+            if (add.ShowDialog() == DialogResult.OK)
+            {
+                tasks.Add(task);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = tasks.GetAllTasks();
+            }
 
 
             //ToDoTask task = new ToDoTask("F1", "sadsa", DateTime.Now, new DateTime(2020, 11, 22), State.Open);
@@ -46,10 +50,25 @@ namespace ToDoList
 
         }
 
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = tasks.GetAllTasks();
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            ToDoTask task = new ToDoTask();
+
+            Form_Add_Edit edit = new Form_Add_Edit(task, TypeF.Edit);
+            if (edit.ShowDialog() == DialogResult.OK)
+            {
+                tasks.Edit(task);
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = tasks.GetAllTasks();
+            }
         }
     }
 }
