@@ -75,10 +75,22 @@ namespace TaskLib
 
             XmlSerializer xs = new XmlSerializer(typeof(List<ToDoTask>));
 
-            using (FileStream fs = new FileStream("Tasks.xml", FileMode.Truncate))
+            if (!File.Exists("Tasks.xml"))
             {
-                xs.Serialize(fs, Tasks);
+                using (FileStream fs = new FileStream("Tasks.xml", FileMode.OpenOrCreate))
+                {
+                    xs.Serialize(fs, Tasks);
+                }
             }
+            else
+            {
+                using (FileStream fs = new FileStream("Tasks.xml", FileMode.Truncate))
+                {
+                    xs.Serialize(fs, Tasks);
+                }
+            }
+
+          
         }
         ///@param task changeв task.
         public void Edit(ToDoTask task)
@@ -121,15 +133,15 @@ namespace TaskLib
         {
             XmlSerializer xs = new XmlSerializer(typeof(List<ToDoTask>));
 
-            if (!File.Exists("Tasks.xml")) throw new Exception("File not found");
-
-            using (FileStream fs = new FileStream("Tasks.xml", FileMode.OpenOrCreate))
+            if (File.Exists("Tasks.xml"))
             {
-                Tasks = (List<ToDoTask>)xs.Deserialize(fs);
-
-                return Tasks;
+                using (FileStream fs = new FileStream("Tasks.xml", FileMode.OpenOrCreate))
+                {
+                    Tasks = (List<ToDoTask>)xs.Deserialize(fs);
+                }
             }
 
+            return Tasks;
         }
     }
 }
