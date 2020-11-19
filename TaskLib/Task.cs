@@ -35,12 +35,23 @@ namespace TaskLib
         public void Edit(Task task)
         {
             if (task == null) throw new Exception("item was null");
+            int index = -1;
+
+            for (int i = 0; i < Tasks.Count; i++)
+                if (task.Id == Tasks[i].Id) index = i;
+
+            Tasks[index] = task;
         }
         public void Remove(Task task)
         {
             if (task == null) throw new Exception("item was null");
 
             Tasks.Remove(task);
+        }
+
+        public List<Task> ShowAllTasks()
+        {
+            return Tasks;
         }
     }
 }
